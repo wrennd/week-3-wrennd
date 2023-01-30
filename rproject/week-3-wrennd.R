@@ -72,13 +72,14 @@ cor(payr, wins) #finding correlation coefficient between payroll and wins
 
 set.seed(2)
 
-sample_size <- 10
+sample_size <- 10 # choosing a sample size
 
 get_mean <- function(df, sample_size) {
   df <- sample_n(df, sample_size) %>%
     summarise(avg_Payroll = mean(Payroll.millions, na.rm = TRUE))
   df$avg_Payroll
 }
+
 
 sample_of_avg <- as_tibble(replicate(100, get_mean(baseball, sample_size)))
 
